@@ -222,14 +222,14 @@ class AllJobApplications extends React.Component {
         const allJobApplication = this.state.allJobApplications;
         const allQuestions = this.state.allQuestions;
         const selected = Date.parse(moment(this.state.specificJobApplication.nextReminder, 'MM-dd-yyyy').toISOString());
-        // let questionsList = allQuestions?.map(question => {
-        //     return (
-        //         <div>
-        //             <input type={"checkbox"} id={question.questionId} key={question.questionId}/>
-        //             <label form={question.questionId}>{question.question}</label>
-        //         </div>
-        //     )
-        // })
+        allQuestions?.map(question => {
+            return (
+                <div>
+                    <input type={"checkbox"} id={question.questionId} key={question.questionId}/>
+                    <label form={question.questionId}>{question.question}</label>
+                </div>
+            )
+        })
 
         let jobApplicationRows = allJobApplication?.map((application) => {
                 return (

@@ -108,7 +108,7 @@ class AllQuestions extends React.Component {
         console.log(questionBody);
         let itemChange = {...this.state.specificQuestion};
         if(itemChange["tags"] === undefined) {
-            itemChange["tags"] = new Array();
+            itemChange["tags"] = [];
         }
 
         if(itemChange["needsWork"] === false) {
@@ -137,7 +137,7 @@ class AllQuestions extends React.Component {
             "tags": this.state.specificQuestion.tags
         }
 
-        const response = await fetch(`${baseUrl}/users/${this.state.username}/questions/`, {
+        await fetch(`${baseUrl}/users/${this.state.username}/questions/`, {
             method: 'POST',
             headers : {
                 'Accept' : 'application/json',
@@ -179,7 +179,7 @@ class AllQuestions extends React.Component {
             "tags": this.state.specificQuestion.tags
         }
         console.log(questionToUpdate);
-        const response = await fetch(`${baseUrl}/users/${this.state.username}/questions/${this.state.specificQuestion.questionId}`, {
+        await fetch(`${baseUrl}/users/${this.state.username}/questions/${this.state.specificQuestion.questionId}`, {
             method: 'PUT',
             headers: {
                 'Accept' : 'application/json',
