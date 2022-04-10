@@ -1,5 +1,4 @@
 import React from "react";
-import App from "../../App";
 import {Form, FormGroup, Input, Label} from "reactstrap";
 import {useNavigate} from "react-router-dom";
 import jobhomepage from "../Home/jobhomepage.png";

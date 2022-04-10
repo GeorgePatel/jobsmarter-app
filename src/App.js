@@ -4,10 +4,8 @@ import './App.css';
 import Home from "./components/Home/Home";
 import Login from "./components/login/Login";
 import Signup from "./components/login/Signup"
-import AllJobApplications from "./components/jobapplication/AllJobApplications";
 import {GetName} from "./components/jobapplication/GetName";
 import { GetNameForQuestions } from "./components/question/GetNameForQuestions";
-import AllQuestions from "./components/question/AllQuestions";
 
 
 class App extends React.Component {

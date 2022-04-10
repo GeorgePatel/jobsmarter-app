@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import {Button, Container, Form, Table, Input} from "reactstrap";
+import React from "react";
+import {Button, Form, Table, Input} from "reactstrap";
 import "./AllJobApplications.css";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
@@ -109,7 +109,7 @@ class AllJobApplications extends React.Component {
         let itemChange = {...this.state.specificJobApplication};
         let list = itemChange["questionsList"];
         let listAfterRemove = list.filter(element => {
-            return element != removedItem.questionId;
+            return element !== removedItem.questionId;
         });
         itemChange["questionsList"] = listAfterRemove;
         this.setState({specificJobApplication : itemChange});
@@ -122,8 +122,8 @@ class AllJobApplications extends React.Component {
         const applicationBody = await applicationResponse.json();
         this.setState({specificJobApplication : applicationBody.jobApplicationModel, applicationLoaded: true, isCreate: false})
         let itemChange = {...this.state.specificJobApplication};
-        if(itemChange["questionsList"] == undefined) {
-            itemChange["questionsList"] = new Array();
+        if(itemChange["questionsList"] === undefined) {
+            itemChange["questionsList"] = [];
         }
 
         this.setState({specificJobApplication : itemChange})
@@ -222,14 +222,14 @@ class AllJobApplications extends React.Component {
         const allJobApplication = this.state.allJobApplications;
         const allQuestions = this.state.allQuestions;
         const selected = Date.parse(moment(this.state.specificJobApplication.nextReminder, 'MM-dd-yyyy').toISOString());
-        let questionsList = allQuestions?.map(question => {
-            return (
-                <div>
-                    <input type={"checkbox"} id={question.questionId} key={question.questionId}/>
-                    <label form={question.questionId}>{question.question}</label>
-                </div>
-            )
-        })
+        // let questionsList = allQuestions?.map(question => {
+        //     return (
+        //         <div>
+        //             <input type={"checkbox"} id={question.questionId} key={question.questionId}/>
+        //             <label form={question.questionId}>{question.question}</label>
+        //         </div>
+        //     )
+        // })
 
         let jobApplicationRows = allJobApplication?.map((application) => {
                 return (

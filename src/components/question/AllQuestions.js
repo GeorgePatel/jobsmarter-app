@@ -1,6 +1,5 @@
 import React from "react";
 import {Button, Container, Table, Input} from "reactstrap";
-import JobNavbar from "../NavBar/JobNavbar";
 import "./AllQuestions.css";
 import {useNavigate} from "react-router-dom";
 import {Multiselect} from "multiselect-react-dropdown";
@@ -95,7 +94,7 @@ class AllQuestions extends React.Component {
         let itemChange = {...this.state.specificQuestion};
         let list = itemChange["tags"];
         let listAfterRemove = list.filter(element=> {
-            return element != removedItem.tag;
+            return element !== removedItem.tag;
         });
         itemChange["tags"]= listAfterRemove;
         this.setState({specificQuestion : itemChange});
@@ -108,11 +107,11 @@ class AllQuestions extends React.Component {
         this.setState({specificQuestion : questionBody.question, questionLoaded: true, isCreate: false})
         console.log(questionBody);
         let itemChange = {...this.state.specificQuestion};
-        if(itemChange["tags"] == undefined) {
+        if(itemChange["tags"] === undefined) {
             itemChange["tags"] = new Array();
         }
 
-        if(itemChange["needsWork"] == false) {
+        if(itemChange["needsWork"] === false) {
             itemChange["needsWork"] = "false";
         } else {
             itemChange["needsWork"] = "true";
@@ -146,7 +145,7 @@ class AllQuestions extends React.Component {
             },
             body : JSON.stringify(questionToCreate)
         });
-        const content = await response.json();
+        // const content = await response.json();
         window.location.reload(false, {
             state:{username:this.state.username}
         }
@@ -189,7 +188,7 @@ class AllQuestions extends React.Component {
             body : JSON.stringify(questionToUpdate)
         });
 
-        const content = await response.json();
+        // const content = await response.json();
        // console.log(content);
         window.location.reload(false, {
             state:{username:this.state.username}

@@ -1,8 +1,6 @@
 import React from "react";
 import jobsmarterLogo from "../Home/jobsmarter_logo.png";
 import "./JobApplicationNavbar.css";
-import {useNavigate} from "react-router-dom";
-import {GetNameForNavbar} from "./GetNameForNavbar";
 
 
 // let usernameToPass = "";

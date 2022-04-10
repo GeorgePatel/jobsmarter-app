@@ -1,7 +1,6 @@
 import React from "react";
 import "./Home.css";
 import JobSmarterNavbar from "../NavBar/JobSmarterNavbar";
-import {Link, useNavigate } from "react-router-dom";
 import jobhomepage from "./jobhomepage.png";
 
 class Home extends React.Component {
